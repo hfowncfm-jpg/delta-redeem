@@ -1,139 +1,98 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Đổi Delta</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delta Dodge</title>
 
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: #0b0d10;
-      color: white;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
 
-    .box {
-      width: 100%;
-      max-width: 420px;
-      background: #15181d;
-      padding: 30px;
-      border-radius: 18px;
-      box-sizing: border-box;
-    }
+body {
+    background: #080b10;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    text-align: center;
+}
 
-    h1 {
-      text-align: center;
-      margin-bottom: 10px;
-    }
+h1 {
+    margin: 15px 0 5px;
+    color: #00ff88;
+    font-size: 28px;
+}
 
-    .sub {
-      text-align: center;
-      color: #aaa;
-      margin-bottom: 25px;
-    }
+#game {
+    position: relative;
+    width: 360px;
+    height: 600px;
+    max-width: 95vw;
+    margin: 10px auto;
+    background:
+        linear-gradient(rgba(0,255,136,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,136,0.04) 1px, transparent 1px),
+        #10151c;
+    background-size: 30px 30px;
+    border: 2px solid #00ff88;
+    border-radius: 12px;
+    overflow: hidden;
+}
 
-    label {
-      display: block;
-      margin-bottom: 8px;
-    }
+#player {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    bottom: 20px;
+    left: 157px;
+    background: #00ff88;
+    border-radius: 8px;
+    box-shadow: 0 0 20px #00ff88;
+}
 
-    input {
-      width: 100%;
-      padding: 14px;
-      box-sizing: border-box;
-      border-radius: 10px;
-      border: 1px solid #444;
-      background: #0e1115;
-      color: white;
-      font-size: 16px;
-      margin-bottom: 15px;
-    }
+.enemy {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #ff3344;
+    border-radius: 7px;
+    box-shadow: 0 0 15px #ff3344;
+}
 
-    button {
-      width: 100%;
-      padding: 14px;
-      border: none;
-      border-radius: 10px;
-      background: #f59e0b;
-      color: black;
-      font-size: 16px;
-      font-weight: bold;
-    }
+#score {
+    font-size: 18px;
+    margin: 5px;
+}
 
-    #message {
-      text-align: center;
-      margin-top: 18px;
-      color: #fbbf24;
-    }
+#menu {
+    margin: 10px auto;
+}
 
-    .info {
-      text-align: center;
-      color: #888;
-      font-size: 13px;
-      margin-top: 25px;
-    }
-  </style>
-</head>
+button {
+    border: none;
+    background: #00ff88;
+    color: #07100b;
+    font-weight: bold;
+    padding: 12px 25px;
+    margin: 5px;
+    border-radius: 8px;
+    font-size: 16px;
+}
 
-<body>
+button:active {
+    transform: scale(0.95);
+}
 
-  <div class="box">
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
 
-    <h1>DELTA REDEEM</h1>
-
-    <div class="sub">
-      Nhập mã phần thưởng của bạn
-    </div>
-
-    <label for="code">
-      Mã redeem
-    </label>
-
-    <input
-      id="code"
-      type="text"
-      placeholder="VD: DELTA-XXXX-XXXX"
-    >
-
-    <button onclick="redeemCode()">
-      ĐỔI CODE
-    </button>
-
-    <div id="message"></div>
-
-    <div class="info">
-      Đây là bản demo.<br>
-      Không nhập mật khẩu hoặc thông tin tài khoản.
-    </div>
-
-  </div>
-
-  <script>
-    function redeemCode() {
-
-      var code = document.getElementById("code").value.trim();
-      var message = document.getElementById("message");
-
-      if (code === "") {
-        message.textContent = "⚠️ Vui lòng nhập mã.";
-        return;
-      }
-
-      message.textContent = "⏳ Đang kiểm tra mã...";
-
-      setTimeout(function() {
-        message.textContent =
-          "ℹ️ Đây là bản demo, chưa kết nối hệ thống redeem thật.";
-      }, 1000);
-
-    }
-  </script>
-
-</body>
-</html>
+.controls button {
+    width: 120px;
+    height
