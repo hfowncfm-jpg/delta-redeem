@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Delta Redeem</title>
+
+  <title>Đổi Delta</title>
 
   <style>
     * {
@@ -30,7 +31,7 @@
       border: 1px solid #2d3239;
       border-radius: 18px;
       padding: 28px;
-      box-shadow: 0 15px 40px rgba(0,0,0,.45);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
     }
 
     .logo {
@@ -108,13 +109,17 @@
 
   <div class="box">
 
-    <div class="logo">DELTA REDEEM</div>
+    <div class="logo">
+      DELTA REDEEM
+    </div>
 
     <div class="sub">
       Nhập mã phần thưởng của bạn
     </div>
 
-    <label for="code">Mã redeem</label>
+    <label for="code">
+      Mã redeem
+    </label>
 
     <input
       id="code"
@@ -138,19 +143,22 @@
 
   <script>
     function redeemCode() {
+
       const code = document.getElementById("code").value.trim();
       const message = document.getElementById("message");
 
       if (!code) {
-        message.textContent = "⚠️ Vui lòng nhập mã redeem.";
+        message.textContent = "⚠️ Vui lòng nhập mã đổi quà.";
         return;
       }
 
       message.textContent = "⏳ Đang kiểm tra mã...";
 
-      setTimeout(() => {
+      setTimeout(function() {
+
         message.textContent =
-          "ℹ️ Đây là bản demo — chưa kết nối hệ thống redeem thật.";
+          "ℹ️ Đây là bản demo — chưa kết nối hệ thống đổi quà thực sự.";
+
       }, 1000);
     }
   </script>
