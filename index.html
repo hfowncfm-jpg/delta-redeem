@@ -1,159 +1,48 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Delta Redeem</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      min-height: 100vh;
-      background: #0b0d10;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-
-    .box {
-      width: 100%;
-      max-width: 430px;
-      background: #15181d;
-      border: 1px solid #2d3239;
-      border-radius: 18px;
-      padding: 28px;
-      box-shadow: 0 15px 40px rgba(0,0,0,.45);
-    }
-
-    .logo {
-      text-align: center;
-      font-size: 32px;
-      font-weight: bold;
-      margin-bottom: 8px;
-    }
-
-    .sub {
-      text-align: center;
-      color: #9ca3af;
-      margin-bottom: 28px;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 14px;
-      color: #d1d5db;
-    }
-
-    input {
-      width: 100%;
-      padding: 15px;
-      border-radius: 10px;
-      border: 1px solid #363b44;
-      background: #0e1115;
-      color: white;
-      outline: none;
-      font-size: 16px;
-      margin-bottom: 15px;
-    }
-
-    input:focus {
-      border-color: #f59e0b;
-    }
-
-    button {
-      width: 100%;
-      padding: 15px;
-      border: none;
-      border-radius: 10px;
-      background: #f59e0b;
-      color: #111;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #fbbf24;
-    }
-
-    #message {
-      margin-top: 18px;
-      text-align: center;
-      min-height: 22px;
-      color: #fbbf24;
-    }
-
-    .info {
-      margin-top: 25px;
-      padding-top: 20px;
-      border-top: 1px solid #292e35;
-      color: #8f96a3;
-      font-size: 13px;
-      line-height: 1.6;
-      text-align: center;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DELTA REDEEM PRO</title>
+<style>
+:root{--bg:#090d12;--panel:#111923;--line:#263342;--text:#eaf1f7;--muted:#8fa0b2;--lime:#c8ff3d;--red:#ff6b6b}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#25351d 0,transparent 36%),var(--bg);color:var(--text);font:15px/1.5 Inter,system-ui,Arial,sans-serif;min-height:100vh}
+.wrap{max-width:1000px;margin:auto;padding:28px 18px 50px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}.brand{display:flex;align-items:center;gap:12px}.mark{width:44px;height:44px;border:1px solid var(--lime);color:var(--lime);display:grid;place-items:center;font-weight:900;transform:skew(-8deg);font-size:20px}.brand b{letter-spacing:2px;font-size:16px}.brand small{display:block;color:var(--muted);letter-spacing:2px;font-size:10px}.status{border:1px solid #35452a;color:var(--lime);padding:7px 11px;border-radius:99px;font-size:11px;letter-spacing:1px}
+.hero{margin:30px 0 22px}.eyebrow{color:var(--lime);letter-spacing:3px;font-size:11px;font-weight:800}.hero h1{font-size:clamp(34px,7vw,64px);line-height:.98;letter-spacing:-2px;margin:12px 0}.hero h1 span{color:var(--lime)}.hero p{color:var(--muted);max-width:580px;margin:16px 0 0}
+.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}.card{background:linear-gradient(145deg,#141e29,#0f151e);border:1px solid var(--line);border-radius:15px;padding:22px;box-shadow:0 14px 40px #0003}.card h2{font-size:15px;letter-spacing:1px;margin:0 0 18px}.label{display:block;color:#aebdca;font-size:12px;margin:14px 0 7px}textarea,input,select{width:100%;background:#0a1017;color:var(--text);border:1px solid #304050;border-radius:9px;padding:13px;font:inherit;outline:none}textarea{min-height:116px;resize:vertical}textarea:focus,input:focus,select:focus{border-color:var(--lime)}.hint{color:var(--muted);font-size:11px;margin-top:7px}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.btn{border:0;border-radius:9px;padding:13px 16px;font-weight:800;letter-spacing:.5px;cursor:pointer}.primary{background:var(--lime);color:#10150b;width:100%;margin-top:17px}.primary:disabled{opacity:.45;cursor:not-allowed}.secondary{background:#1b2734;color:#dce7f0;border:1px solid #344657}.actions{display:flex;gap:9px;margin-top:12px}.actions button{flex:1}.metric{display:flex;justify-content:space-between;border-bottom:1px solid #263342;padding:12px 0;color:var(--muted);font-size:13px}.metric strong{color:var(--text)}.metric:last-child{border:0}.notice{border:1px solid #594b27;background:#282214;color:#e8d6a1;border-radius:10px;padding:12px;font-size:12px;margin-top:15px}.history{margin-top:16px}.history-head{display:flex;align-items:center;justify-content:space-between}.history-head h2{margin:0}.clear{background:none;border:0;color:var(--muted);cursor:pointer}.item{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #263342;font-size:13px}.item small{display:block;color:var(--muted);margin-top:3px;overflow-wrap:anywhere}.pill{font-size:10px;color:#e7c978;border:1px solid #66552c;border-radius:20px;padding:3px 8px;height:max-content;white-space:nowrap}.empty{color:var(--muted);font-size:13px;padding:18px 0}.foot{color:#667687;text-align:center;font-size:11px;margin-top:24px}
+@media(max-width:720px){.grid{grid-template-columns:1fr}.top{margin-bottom:18px}.card{padding:18px}.hero{margin-top:20px}.row{grid-template-columns:1fr}}
+</style>
 </head>
-
 <body>
-
-  <div class="box">
-
-    <div class="logo">DELTA REDEEM</div>
-
-    <div class="sub">
-      Nhập mã phần thưởng của bạn
-    </div>
-
-    <label for="code">Mã redeem</label>
-
-    <input
-      id="code"
-      type="text"
-      placeholder="VD: DELTA-XXXX-XXXX"
-      autocomplete="off"
-    >
-
-    <button onclick="redeemCode()">
-      ĐỔI CODE
-    </button>
-
-    <div id="message"></div>
-
-    <div class="info">
-      Đây là giao diện demo.<br>
-      Không nhập mật khẩu hoặc thông tin tài khoản vào trang này.
-    </div>
-
-  </div>
-
-  <script>
-    function redeemCode() {
-      const code = document.getElementById("code").value.trim();
-      const message = document.getElementById("message");
-
-      if (!code) {
-        message.textContent = "⚠️ Vui lòng nhập mã redeem.";
-        return;
-      }
-
-      message.textContent = "⏳ Đang kiểm tra mã...";
-
-      setTimeout(() => {
-        message.textContent =
-          "ℹ️ Đây là bản demo — chưa kết nối hệ thống redeem thật.";
-      }, 1000);
-    }
-  </script>
-
+<div class="wrap">
+<header class="top"><div class="brand"><div class="mark">Δ</div><div><b>DELTA REDEEM</b><small>PRO • REWARD CONSOLE</small></div></div><div class="status">● LOCAL DEMO</div></header>
+<section class="hero"><div class="eyebrow">REWARD REDEMPTION TOOL</div><h1>CLAIM YOUR<br><span>REWARDS.</span></h1><p>Quản lý mã thưởng Delta Force trong một giao diện gọn gàng. Dán mã, theo dõi danh sách và lưu lịch sử ngay trên thiết bị.</p></section>
+<div class="grid">
+<section class="card"><h2>01 / CODE INPUT</h2><label class="label" for="codes">Mã thưởng (mỗi dòng một mã)</label><textarea id="codes" placeholder="Ví dụ:&#10;DF-REWARD-CODE&#10;DELTA-BONUS-2026"></textarea><div class="hint">Bản demo chỉ kiểm tra đầu vào và lưu lịch sử cục bộ; chưa gửi mã đến máy chủ game.</div>
+<div class="row"><div><label class="label" for="region">Khu vực</label><select id="region"><option>Global</option><option>Garena</option><option>China</option><option>Khác / chưa rõ</option></select></div><div><label class="label" for="player">Tên nhân vật (tùy chọn)</label><input id="player" placeholder="Tên trong game"></div></div>
+<button class="btn primary" id="submit">＋ KIỂM TRA & LƯU MÃ</button><div class="actions"><button class="btn secondary" id="paste">DÁN TỪ BỘ NHỚ</button><button class="btn secondary" id="reset">XÓA Ô NHẬP</button></div>
+<div class="notice">⚠ Để đổi thưởng thật, cần dùng trang/API chính thức của Delta Force và hoàn tất đăng nhập/xác minh tại đó. Không nhập mật khẩu vào công cụ không chính thức.</div>
+</section>
+<aside class="card"><h2>02 / SESSION OVERVIEW</h2><div class="metric"><span>Mã đã lưu</span><strong id="total">0</strong></div><div class="metric"><span>Trạng thái</span><strong>Demo local</strong></div><div class="metric"><span>Khu vực đang chọn</span><strong id="regionView">Global</strong></div><div class="metric"><span>Thông tin tài khoản</span><strong id="playerView">Chưa nhập</strong></div><div class="notice">Lịch sử được lưu trong bộ nhớ trình duyệt trên thiết bị này. Không đồng bộ qua thiết bị khác.</div></aside>
+</div>
+<section class="card history"><div class="history-head"><h2>03 / CODE HISTORY</h2><button class="clear" id="clearHistory">Xóa lịch sử</button></div><div id="list" class="empty">Chưa có mã nào. Nhập mã ở khung bên trái để bắt đầu.</div></section>
+<div class="foot">DELTA REDEEM PRO • Fan-made utility concept • Không liên kết hoặc được bảo trợ bởi nhà phát hành Delta Force.</div>
+</div>
+<script>
+const $=s=>document.querySelector(s), key='deltaRedeemHistoryV1';
+let history=JSON.parse(localStorage.getItem(key)||'[]');
+function render(){ $('#total').textContent=history.length; $('#regionView').textContent=$('#region').value; $('#playerView').textContent=$('#player').value.trim()||'Chưa nhập';
+ const list=$('#list'); if(!history.length){list.className='empty';list.textContent='Chưa có mã nào. Nhập mã ở khung bên trái để bắt đầu.';return}
+ list.className='';list.innerHTML=history.map(x=>`<div class="item"><div><b>${escapeHtml(x.code)}</b><small>${escapeHtml(x.region)} · ${escapeHtml(x.date)}</small></div><span class="pill">ĐÃ LƯU · DEMO</span></div>`).join('');
+}
+function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+$('#submit').addEventListener('click',()=>{const codes=$('#codes').value.split(/\n|,/).map(x=>x.trim()).filter(Boolean);if(!codes.length){alert('Nhập ít nhất một mã trước nhé.');return}
+let added=0;for(const code of codes){if(!history.some(x=>x.code.toLowerCase()===code.toLowerCase())){history.unshift({code,region:$('#region').value,date:new Date().toLocaleString('vi-VN')});added++}}
+history=history.slice(0,100);localStorage.setItem(key,JSON.stringify(history));$('#codes').value='';render();alert(`Đã lưu ${added} mã mới. Đây chưa phải kết quả đổi thưởng trong game.`)});
+$('#reset').onclick=()=>$('#codes').value='';
+$('#paste').onclick=async()=>{try{$('#codes').value=await navigator.clipboard.readText()}catch(e){alert('Trình duyệt không cấp quyền đọc clipboard. Hãy dán thủ công vào ô mã.')}};
+$('#clearHistory').onclick=()=>{if(confirm('Xóa toàn bộ lịch sử mã trên thiết bị này?')){history=[];localStorage.removeItem(key);render()}};
+$('#region').onchange=render;$('#player').oninput=render;render();
+</script>
 </body>
 </html>
